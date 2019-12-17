@@ -7,8 +7,9 @@ before_install:
 script:
   - docker images node/test
 after_success:
-  - docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
-  - docker push node/test;
-    
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
+    docker push node/test;
+    fi
 
 

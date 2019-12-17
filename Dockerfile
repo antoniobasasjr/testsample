@@ -5,5 +5,4 @@ WORKDIR /home/node/testsample
 RUN git config --global user.email "antoniobasasjr@gmail.com"
 RUN git config --global user.name "antoniobasasjr"
 RUN npm install
-RUN npm run build
 CMD node app.js

@@ -3,6 +3,5 @@ language: bash
 service:
   - docker
 
-before_install:
-  - docker pull node:alpine
-  - docker run -d -p 0.0.0.0:80:80 --name testsample node:alpine
+script:
+  - docker build -t node:v1 .

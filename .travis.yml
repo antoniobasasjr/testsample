@@ -1,17 +1,13 @@
-language: bash
+
 sudo: required
-
-service:
+services:
   - docker
-
+before_install:
+  - docker build -t node/test .
 script:
-  - docker build -t node:v1 .
-  # - docker tag node:alpine noded/v:1
-  # - docker login --username=junexbasas --password=PP@ssw00rd
-  # - docker push noded/v
-
-  after_success:
-    - if [ "$TRAVIS_BRANCH" == "master" ]; then
-      docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
-      docker push node:v1;
-      fi
+  - docker images node/test
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
+    docker push node/test;
+    fi

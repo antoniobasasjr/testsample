@@ -5,4 +5,6 @@ service:
 
 script:
   - docker build -t node:v1 .
-  - docker push junexbasas/node:v1
+  - docker tag node:alpine noded/v:1
+  - docker login --username=<junexbasas>
+  - docker push noded/v:1

@@ -5,4 +5,4 @@ service:
 
 script:
   - docker build -t node:v1 .
-  - docker push junexbasas/node:<v1>
+  - docker push junexbasas/node:v1

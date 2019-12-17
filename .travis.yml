@@ -7,4 +7,4 @@ script:
   - docker build -t node:v1 .
   - docker tag node:alpine noded/v:1
   - docker login --username=junexbasas --password=PP@ssw00rd
-  - docker push noded/v:1
+  - docker push noded/v

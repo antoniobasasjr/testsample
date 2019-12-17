@@ -3,13 +3,13 @@ sudo: required
 services:
   - docker
 before_install:
-  - docker build -t node/test .
+  - docker build -t cinhtau/elasticsearch .
 script:
-  - docker images node/test
+  - docker images cinhtau/elasticsearch
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
-    docker push node/test;
+    docker push cinhtau/elasticsearch;
     fi
 
 

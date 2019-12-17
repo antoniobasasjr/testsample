@@ -8,5 +8,4 @@ before_install:
 - docker run -d -p 0.0.0.0:80:80 --name testsample node:alpine /bin/ash -c "cd /home/node/testsample ; git clone https://github.com/antoniobasasjr/testsample.git /home/node/testsample; npm install /home/node/testsample;"
 - docker ps -a
 
-script:
-- docker exec testsample ash -c "node app.js /home/node/testsample"
+

@@ -9,8 +9,7 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd";
-    docker push junexbasas/node:tagname;
+    docker push node/test;
     fi
 
 
- 

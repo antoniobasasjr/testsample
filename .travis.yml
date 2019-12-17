@@ -8,7 +8,7 @@ script:
   - docker images cinhtau/elasticsearch
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    docker login -e="$antoniobasasjr@gmail.com" -u="$junexbasas" -p="$PP@ssw00rd" --password-stdin="6376887b-1ebe-4f9d-ba11-dd7f1f677245";
+    docker login -u="$junexbasas" -p="$PP@ssw00rd";
     docker push cinhtau/elasticsearch;
     fi
 

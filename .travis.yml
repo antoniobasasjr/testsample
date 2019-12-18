@@ -10,3 +10,4 @@ after_success:
   - docker login --username=junexbasas --password=PP@ssw00rd
   - docker tag node/test junexbasas/node/test:v1
   - docker images
+  - docker push junexbasas/node/test

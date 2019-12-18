@@ -11,7 +11,7 @@ before_deploy:
   - docker images
 deploy:
 provider: script
-script: - docker push junexbasas/node/test
+script: docker push junexbasas/node/test
 on:
 branch: master
   

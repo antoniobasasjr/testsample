@@ -1,14 +1,6 @@
 sudo: required
 services:
   - docker
-env:
-  global:
-  - IMAGE_NAME=node
-  - REGISTRY_USER=junexbasas
-  - REGISTRY_PASS=PP@ssw00rd
-
-
-  
 before_script:
   - version="$(awk '$2 == "VERSION" { print $3; exit }' Dockerfile)"
   - docker pull "$IMAGE_NAME" || true
@@ -18,7 +10,7 @@ script:
 after_script:
   - docker images
 before_deploy:
-  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+  - docker login --username=junexbasas --password=PP@ssw00rd
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
   - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${version}"  
 deploy:

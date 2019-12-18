@@ -3,7 +3,7 @@ services:
   - docker
 env:
   global:
-  - IMAGE_NAME=node/test
+  - IMAGE_NAME=node
   - REGISTRY_USER=junexbasas
   - REGISTRY_PASS=PP@ssw00rd
 

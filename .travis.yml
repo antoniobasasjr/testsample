@@ -1,24 +1,18 @@
 sudo: required
 services:
   - docker
-env:
-  global:
-  - IMAGE_NAME=node/test
-  
 before_script:
-  - version="$(awk '$2 == "VERSION" { print $3; exit }' Dockerfile)"
-  - docker pull "$IMAGE_NAME" || true
-
-script:
-  - docker build --pull --cache-from "$IMAGE_NAME" --tag "$IMAGE_NAME" .
+  - docker build -t node/test .
 after_script:
-  - docker images
+  - docker images node/test
 before_deploy:
-  - docker login --username=junexbasas --password=PP@ssw00rd
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:latest"
-  - docker tag "$IMAGE_NAME" "${IMAGE_NAME}:${version}"  
+  - docker login --username=junexbasas --password=PP@ssw00rd
+  - docker tag node/test junexbasas/node/test:v1
+  - docker images
 deploy:
 provider: script
-script: docker push "${IMAGE_NAME}:latest" && docker push "${IMAGE_NAME}:${version}"
+script: - docker push junexbasas/node/test
 on:
 branch: master
+  
+  

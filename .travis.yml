@@ -1,6 +1,10 @@
 sudo: required
 services:
   - docker
+env:
+  global:
+  - IMAGE_NAME=node/test
+  
 before_script:
   - version="$(awk '$2 == "VERSION" { print $3; exit }' Dockerfile)"
   - docker pull "$IMAGE_NAME" || true
